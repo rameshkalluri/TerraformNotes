@@ -1,40 +1,15 @@
 ## What is IaC?
 
-Infrastructure as code (IaC) means to manage your IT infrastructure using configurationfiles.
+Infrastructure as Code (IaC) is a widespread terminology among DevOps professionals and a key DevOps practice in the industry. 
 
+It is the process of managing and provisioning the complete IT infrastructure (comprises both physical and virtual machines) using machine-readable definition files. 
+
+It helps in automating the complete data center by using programming scripts.
 ## Why IaC?
 
-Historically, managing IT infrastructure was a manual process. People would physically put servers in place and configure them.
 
-Only after the machines were configured to the correct settings required by the OS and dependencies would those people deploy the application.
+![image](https://github.com/user-attachments/assets/ecf774cd-5ba2-4b06-a78d-dc2ddc4e17e0)
 
-Businesses are making a transition where traditionally managed infrastructure can no longer meet the demands of today’s businesses. 
-
-IT organizations are quickly adopting the public cloud, which is predominantly API-driven
-
-To meet customer demands and save costs, application teams are architecting their applications to support a much higher level of elasticity, supporting technology like containers and public cloud resources.
-
-## Benefits of IaC
-
-### Speed
-
-IaC benefits a company’s IT architecture and workflow as it uses automation to substantially increase the provisioning speed of the infrastructure’s development,testing, and production.
-
-### Consistency
-
-Since it is code, it generates the same result every time. It provisioned the same environment every time, enabling improved infrastructure consistency at all times.
-
-### Cost
-
-One of the main benefits of IaC is, without a doubt, lowering the costs of infrastructure management. With everything automated and organized, engineers save up on time and cost which can be wisely invested in performing other manual tasks and higher-value jobs.
-
-### Version Controlled, Integrated
-
-Since the infrastructure configurations are codified, we can check-in into version control like GitHub and start versioning it.
-
-IaC allows you to track and give insight on what, who, when, and why anything changed in the process of deployment. This has more transparency which we lack in traditional infrastructure management.
-
-Now, we know what Infrastructure as Code is means, now let’s deep dive into Terraform...
 
 ### Terraform
 
@@ -72,6 +47,39 @@ execution plan. This does not change the deployment (read-only).
 3. Terraform apply executes the plan. This potentially changes the deployment.
 
 4. Terraform destroy deletes all resources that are governed by this specific terraform environment.
+
+
+## Terraform Core Concepts
+
+1. Variables: 
+
+Terraform has input and output variables, it is a key-value pair. 
+
+Input variables are used as parameters to input values at run time to customize our deployments. 
+
+Output variables are return values of a terraform module that can be used by other configurations.
+
+2. Provider: 
+
+Terraform users provision their infrastructure on the major cloud providers such as AWS, Azure, OCI, and others.
+
+A provider is a plugin that interacts with the various APIs required to create, update, and delete various resources.
+
+
+3. State: 
+
+Terraform records information about what infrastructure is created in a Terraform state file. 
+
+With the state file, Terraform is able to find the resources it created previously, supposed to manage and update them accordingly.
+
+4. Resources: 
+
+Cloud Providers provides various services in their offerings, they are referenced as Resources in Terraform. 
+
+Terraform resources can be anything from compute instances, virtual networks to higher-level components such as DNS records. 
+
+Each resource has its own attributes to define that resource.
+
 
 
 
