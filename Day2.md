@@ -1,23 +1,3 @@
-# Getting started using Terraform
-
-To get started building infrastructure resources using Terraform, there are few things that you should take care of. The general steps to deploy a resource(s) in the cloud are:
-
-Set up a Cloud Account on any cloud provider (AWS, Azure, OCI)
-
-Install Terraform
-
-Add a provider – AWS, Azure, OCI, GCP, or others
-
-Write configuration files
-
-Initialize Terraform Providers
-
-PLAN (DRY RUN) using terraform plan
-
-APPLY (Create a Resource) using terraform apply
-
-DESTROY (Delete a Resource) using terraform destroy
-
 ## Terraform Providers
 
 A provider is responsible for understanding API interactions and exposing resources. 
