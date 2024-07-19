@@ -55,3 +55,17 @@ A Terraform configuration is made up of one or more files in a directory, provid
 3. Variable definition files (terraform.tfvars): Here we assign values to the input variables
 
 4. State file (terraform.tfstate): a state file is created once after Terraform is run. It stores state about our managed infrastructure.
+
+======================================================================================================================
+
+1. create a file name extension with .tf
+
+exmaple: main.tf
+
+edit file main.tf then add following code, following example for aws provider
+
+```
+provider "aws" {
+ region = "us-east-1"
+}
+```
