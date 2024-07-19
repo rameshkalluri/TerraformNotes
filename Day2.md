@@ -28,13 +28,7 @@ Configuration files are made up of resources with settings and values representi
 
 A Terraform configuration is made up of one or more files in a directory, provider binaries, plan files, and state files once Terraform has run the configuration.
 
-1. Configuration file (*.tf files): Here we declare the provider and resources to be deployed along with the type of resource and all resources specific settings
-
-2. Variable declaration file (variables.tf or variables.tf.json): Here we declare the input variables required to provision resources
-
-3. Variable definition files (terraform.tfvars): Here we assign values to the input variables
-
-4. State file (terraform.tfstate): a state file is created once after Terraform is run. It stores state about our managed infrastructure.
+Configuration file (*.tf files): Here we declare the provider and resources to be deployed along with the type of resource and all resources specific settings
 
 =================================================================
 
@@ -82,6 +76,40 @@ For example, ~> 0.9 is equivalent to >= 0.9, < 1.0, and ~> 0.8.4, is equivalent 
 provider "aws" {
 region = "us-east-1"
 version = ">= 2.9.0"
+}
+```
+==================================================================
+
+## Resources
+
+Terraform resource syntax
+
+The syntax for defining a resource in Terraform typically follows this pattern:
+
+```
+resource "resource_type" "resource_name" {
+  # Configuration settings for the resource
+  attribute1 = value1
+  attribute2 = value2
+  # ...
+}
+```
+
+1.resource: This keyword is used to declare a resource block.
+
+2."resource_type": This is the type of resource you want to create. For example, if you’re creating an AWS EC2 instance with Terraform, the resource type would be "aws_instance".
+
+3."resource_name": This is a user-defined name for the resource block. It must be unique within your Terraform configuration. It’s used as a reference to the resource elsewhere in your configuration.
+
+4.{}: The opening and closing curly braces enclose the configuration settings for the resource. Inside the block, you define the attributes and their values for the resource.
+
+#### Example:
+
+```
+resource "aws_instance" "myec2" {
+ ami = "8bc8989"
+ instance_type = "t2.micro"
+ count = 3
 }
 ```
 ==================================================================
@@ -144,4 +172,14 @@ terraform destroy command is not the only command through which infrastructure c
 
 ```
 $ terraform destroy
+```
+
+## Terraform Validate
+
+The terraform validate command validates the configuration files in a directory.
+
+Validate runs checks that verify whether a configuration is syntactically valid
+
+```
+$ terraform validate
 ```
