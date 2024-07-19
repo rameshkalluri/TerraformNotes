@@ -39,47 +39,25 @@ https://developer.hashicorp.com/terraform/install
 
 ![image](https://github.com/user-attachments/assets/d5611e27-afc8-439b-b462-a6a03393abd9)
 
-1. Terraform init initializes the (local) Terraform environment. Usually executed only once per session.
+# Getting started using Terraform
 
-2. Terraform plan compares the Terraform state with the as-is state in the cloud, build and display an
-execution plan. This does not change the deployment (read-only).
+To get started building infrastructure resources using Terraform, there are few things that you should take care of. The general steps to deploy a resource(s) in the cloud are:
 
-3. Terraform apply executes the plan. This potentially changes the deployment.
+Set up a Cloud Account on any cloud provider (AWS, Azure, OCI)
 
-4. Terraform destroy deletes all resources that are governed by this specific terraform environment.
+Install Terraform
 
+Add a provider – AWS, Azure, OCI, GCP, or others
 
-## Terraform Core Concepts
+Write configuration files
 
-1. Variables: 
+Initialize Terraform Providers
 
-Terraform has input and output variables, it is a key-value pair. 
+PLAN (DRY RUN) using terraform plan
 
-Input variables are used as parameters to input values at run time to customize our deployments. 
+APPLY (Create a Resource) using terraform apply
 
-Output variables are return values of a terraform module that can be used by other configurations.
-
-2. Provider: 
-
-Terraform users provision their infrastructure on the major cloud providers such as AWS, Azure, OCI, and others.
-
-A provider is a plugin that interacts with the various APIs required to create, update, and delete various resources.
-
-
-3. State: 
-
-Terraform records information about what infrastructure is created in a Terraform state file. 
-
-With the state file, Terraform is able to find the resources it created previously, supposed to manage and update them accordingly.
-
-4. Resources: 
-
-Cloud Providers provides various services in their offerings, they are referenced as Resources in Terraform. 
-
-Terraform resources can be anything from compute instances, virtual networks to higher-level components such as DNS records. 
-
-Each resource has its own attributes to define that resource.
-
+DESTROY (Delete a Resource) using terraform destroy
 
 
 
