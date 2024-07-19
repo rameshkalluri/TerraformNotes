@@ -1,223 +1,50 @@
-## what is terraform
+## What is IaC?
 
-Terraform is an open-source infrastructure as code (IaC) software tool created by HashiCorp. It allows users to define and provision data center infrastructure using a high-level configuration language known as HashiCorp Configuration Language (HCL), or optionally JSON.
+Infrastructure as code (IaC) means to manage your IT infrastructure using configurationfiles.
 
-## why we need terraform
+## Why IaC?
 
-Terraform is a tool that helps manage and automate your infrastructure (like servers, databases, and networks) using code. Here’s why you might need it:
+Historically, managing IT infrastructure was a manual process. People would physically put servers in place and configure them.
 
-1. Consistency:
+Only after the machines were configured to the correct settings required by the OS and dependencies would those people deploy the application.
 
-Repeatable Setups: You can define your infrastructure as code, ensuring the same setup every time.
+Businesses are making a transition where traditionally managed infrastructure can no longer meet the demands of today’s businesses. 
 
-3. Automation:
+IT organizations are quickly adopting the public cloud, which is predominantly API-driven
 
-Less Manual Work: Automate the creation and management of resources, reducing manual errors.
+To meet customer demands and save costs, application teams are architecting their applications to support a much higher level of elasticity, supporting technology like containers and public cloud resources.
 
-4. Scalability:
+## Benefits of IaC
 
-Easy Scaling: Easily add or remove resources based on demand.
+### Speed
 
-5. Multi-Cloud Management:
+IaC benefits a company’s IT architecture and workflow as it uses automation to substantially increase the provisioning speed of the infrastructure’s development,testing, and production.
 
-Flexibility: Manage resources across different cloud providers (like AWS, Azure, Google Cloud) from one place.
+### Consistency
 
-6. Planning and Transparency:
+Since it is code, it generates the same result every time. It provisioned the same environment every time, enabling improved infrastructure consistency at all times.
 
-Preview Changes: See what changes will happen before applying them, preventing surprises.
+### Cost
 
-7. Collaboration:
+One of the main benefits of IaC is, without a doubt, lowering the costs of infrastructure management. With everything automated and organized, engineers save up on time and cost which can be wisely invested in performing other manual tasks and higher-value jobs.
 
-Team Work: Multiple team members can work on the same infrastructure code, with a clear understanding of the current state.
+## Version Controlled, Integrated
 
-# Terraform & AWS CLI Installation
+Since the infrastructure configurations are codified, we can check-in into version control like GitHub and start versioning it.
 
-## Step-01: Introduction
-- Install Terraform CLI
-- Install AWS CLI
-- Install VS Code Editor
-- Install HashiCorp Terraform plugin for VS Code
+IaC allows you to track and give insight on what, who, when, and why anything changed in the process of deployment. This has more transparency which we lack in traditional infrastructure management.
 
+Now, we know what Infrastructure as Code is means, now let’s deep dive into Terraform...
 
-## Step-02: MACOS: Terraform Install
-- [Download Terraform MAC](https://www.terraform.io/downloads.html)
-- [Install CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-- Unzip the package
-```
-# Copy binary zip file to a folder
-mkdir /Users/<YOUR-USER>/Documents/terraform-install
-COPY Package to "terraform-install" folder
+## Terraform
 
-# Unzip
-unzip <PACKAGE-NAME>
-unzip terraform_0.14.3_darwin_amd64.zip
+Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. 
 
-# Copy terraform binary to /usr/local/bin
-echo $PATH
-mv terraform /usr/local/bin
+Terraform can manage existing and popular service providers as well as custom in-house solutions which has been developed by HashiCorp
 
-# Verify Version
-terraform version
+# Installation of Terraform
 
-# To Uninstall Terraform (NOT REQUIRED)
-rm -rf /usr/local/bin/terraform
-``` 
+https://developer.hashicorp.com/terraform/install
 
-## Step-03: MACOS: IDE for Terraform - VS Code Editor
-- [Microsoft Visual Studio Code Editor](https://code.visualstudio.com/download)
-- [Hashicorp Terraform Plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform)
-
-
-### Step-04: MACOS: Install AWS CLI
-- [AWS CLI Install](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-- [Install AWS CLI - MAC](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd)
-
-```
-# Install AWS CLI V2
-curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-sudo installer -pkg AWSCLIV2.pkg -target /
-which aws
-aws --version
-
-# Uninstall AWS CLI V2 (NOT REQUIRED)
-which aws
-ls -l /usr/local/bin/aws
-sudo rm /usr/local/bin/aws
-sudo rm /usr/local/bin/aws_completer
-sudo rm -rf /usr/local/aws-cli
-```
-
-
-## Step-05: MACOS: Configure AWS Credentials 
-- **Pre-requisite:** Should have AWS Account.
-  - [Create an AWS Account](https://portal.aws.amazon.com/billing/signup?nc2=h_ct&src=header_signup&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start)
-- Generate Security Credentials using AWS Management Console
-  - Go to Services -> IAM -> Users -> "Your-Admin-User" -> Security Credentials -> Create Access Key
-- Configure AWS credentials using SSH Terminal on your local desktop
-```
-# Configure AWS Credentials in command line
-$ aws configure
-AWS Access Key ID [None]: 
-AWS Secret Access Key [None]: WL9G9Tl8lGm7w9t7B3NEDny1+w3N/K5F3HWtdFH/
-Default region name [None]: us-east-1
-Default output format [None]: json
-
-# Verify if we are able list S3 buckets
-aws s3 ls
-```
-- Verify the AWS Credentials Profile
-```
-cat $HOME/.aws/credentials 
-```
-
-## Step-06: WindowsOS: Terraform & AWS CLI Install
-- [Download Terraform](https://www.terraform.io/downloads.html)
-- [Install CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-- Unzip the package
-- Create new folder `terraform-bins`
-- Copy the `terraform.exe` to a `terraform-bins`
-- Set PATH in windows 
-- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-
-## Step-07: LinuxOS: Terraform & AWS CLI Install
-- [Download Terraform](https://www.terraform.io/downloads.html)
-- [Linux OS - Terraform Install](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-
-
-# Terraform Command Basics
-
-## Step-01: Introduction
-- Understand basic Terraform Commands
-  - terraform init
-  - terraform validate
-  - terraform plan
-  - terraform apply
-  - terraform destroy      
-
-## Step-02: Review terraform manifest for EC2 Instance
-- **Pre-Conditions-1:** Ensure you have **default-vpc** in that respective region
-- **Pre-Conditions-2:** Ensure AMI you are provisioning exists in that region if not update AMI ID 
-- **Pre-Conditions-3:** Verify your AWS Credentials in **$HOME/.aws/credentials**
-```t
-# Terraform Settings Block
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      #version = "~> 3.21" # Optional but recommended in production
-    }
-  }
-}
-
-# Provider Block
-provider "aws" {
-  profile = "default" # AWS Credentials Profile configured on your local desktop terminal  $HOME/.aws/credentials
-  region  = "us-east-1"
-}
-
-# Resource Block
-resource "aws_instance" "ec2demo" {
-  ami           = "ami-04d29b6f966df1537" # Amazon Linux in us-east-1, update as per your region
-  instance_type = "t2.micro"
-}
-```
-
-## Step-03: Terraform Core Commands
-```t
-# Initialize Terraform
-terraform init
-
-# Terraform Validate
-terraform validate
-
-# Terraform Plan to Verify what it is going to create / update / destroy
-terraform plan
-
-# Terraform Apply to Create EC2 Instance
-terraform apply 
-```
-
-```
-# Initialize Terraform
-terraform init
-
-Observation: 
-1) Successfully downloaded providers in .terraform folder
-2) Created lock file named ".terraform.lock.hcl"
-
-# Validate Terraform configuration files
-terraform validate
-Observation: No files changed / added in current working directory
-
-# Format Terraform configuration files
-terraform fmt
-Observations: *.tf files will change to format them if any format changes exists
-
-# Review the terraform plan
-terraform plan 
-Observation-1: Nothing happens during the first run from terraform state perspective
-Observation-2: From Resource Behavior perspective you can see "+ create", we are creating 
-
-# Create Resources 
-terraform apply -auto-approve
-Observation: 
-1) Creates terraform.tfstate file in local working directory
-2) Creates actual resource in AWS Cloud
-```
-
-## Step-04: Verify the EC2 Instance in AWS Management Console
-- Go to AWS Management Console -> Services -> EC2
-- Verify newly created EC2 instance
-
-
-
-## Step-05: Destroy Infrastructure
-```t
-# Destroy EC2 Instance
-terraform destroy
-
-# Delete Terraform files 
-rm -rf .terraform*
-rm -rf terraform.tfstate*
-```
+![image](https://github.com/user-attachments/assets/a5838c97-f170-4f29-abb6-2955b34ce804)
 
