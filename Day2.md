@@ -56,7 +56,8 @@ A Terraform configuration is made up of one or more files in a directory, provid
 
 4. State file (terraform.tfstate): a state file is created once after Terraform is run. It stores state about our managed infrastructure.
 
-===========================================================================================
+=================================================================
+
 create a file name extension with .tf
 
 exmaple: main.tf
