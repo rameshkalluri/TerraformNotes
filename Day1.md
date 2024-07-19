@@ -35,6 +35,35 @@ Uses easy to understand language, HCL (HashiCorp configuration language)
 
 https://developer.hashicorp.com/terraform/install
 
+## installation of awscli 
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+## how to setup communication b/w aws and terraform
+
+### Create an AWS IAM User:
+
+Log in to the AWS Management Console and navigate to the IAM dashboard.
+
+Create a new IAM user with programmatic access. This user will be used by Terraform to authenticate with AWS.
+
+Make sure to note the Access Key ID and Secret Access Key.
+
+Terraform can infer the following environment variables for AWS
+
+```
+export AWS_ACCESS_KEY_ID="anaccesskey"
+export AWS_SECRET_ACCESS_KEY="asecretkey"
+```
+Ref: https://www.terraform.io/docs/providers/aws/#environment-variables
+
+But I would suggest trying the AWS Profile. You can add credentials to ~/.aws/credentials file like
+
+```
+[myprofile]
+aws_access_key_id     = anaccesskey
+aws_secret_access_key = asecretkey
+```
 ## Terraform Lifecycle
 
 ![image](https://github.com/user-attachments/assets/d5611e27-afc8-439b-b462-a6a03393abd9)
@@ -58,6 +87,8 @@ PLAN (DRY RUN) using terraform plan
 APPLY (Create a Resource) using terraform apply
 
 DESTROY (Delete a Resource) using terraform destroy
+
+
 
 
 
