@@ -1,3 +1,23 @@
+# Getting started using Terraform
+
+To get started building infrastructure resources using Terraform, there are few things that you should take care of. The general steps to deploy a resource(s) in the cloud are:
+
+Set up a Cloud Account on any cloud provider (AWS, Azure, OCI)
+
+Install Terraform
+
+Add a provider – AWS, Azure, OCI, GCP, or others
+
+Write configuration files
+
+Initialize Terraform Providers
+
+PLAN (DRY RUN) using terraform plan
+
+APPLY (Create a Resource) using terraform apply
+
+DESTROY (Delete a Resource) using terraform destroy
+
 ## Terraform Providers
 
 A provider is responsible for understanding API interactions and exposing resources. 
@@ -13,8 +33,7 @@ erraform has over a hundred providers for different technologies, and each provi
 
 So through AWS provider, for example, you have access to hundreds of AWS resources like EC2 instances, the AWS users, etc.
 
-
-# Terraform Configuration Files
+## Terraform Configuration Files
 
 Configuration files are a set of files used to describe infrastructure in Terraform and have the file extensions .tf and .tf.json.
 
@@ -36,25 +55,3 @@ A Terraform configuration is made up of one or more files in a directory, provid
 3. Variable definition files (terraform.tfvars): Here we assign values to the input variables
 
 4. State file (terraform.tfstate): a state file is created once after Terraform is run. It stores state about our managed infrastructure.
-
-# Getting started using Terraform
-
-To get started building infrastructure resources using Terraform, there are few things that you should take care of. The general steps to deploy a resource(s) in the cloud are:
-
-Set up a Cloud Account on any cloud provider (AWS, Azure, OCI)
-
-Install Terraform
-
-Add a provider – AWS, Azure, OCI, GCP, or others
-
-Write configuration files
-
-Initialize Terraform Providers
-
-PLAN (DRY RUN) using terraform plan
-
-APPLY (Create a Resource) using terraform apply
-
-DESTROY (Delete a Resource) using terraform destroy
-
-
