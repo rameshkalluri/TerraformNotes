@@ -28,7 +28,7 @@ Since it is code, it generates the same result every time. It provisioned the sa
 
 One of the main benefits of IaC is, without a doubt, lowering the costs of infrastructure management. With everything automated and organized, engineers save up on time and cost which can be wisely invested in performing other manual tasks and higher-value jobs.
 
-## Version Controlled, Integrated
+### Version Controlled, Integrated
 
 Since the infrastructure configurations are codified, we can check-in into version control like GitHub and start versioning it.
 
@@ -36,15 +36,43 @@ IaC allows you to track and give insight on what, who, when, and why anything ch
 
 Now, we know what Infrastructure as Code is means, now let’s deep dive into Terraform...
 
-## Terraform
+### Terraform
 
-Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. 
+![image](https://github.com/user-attachments/assets/4ae6ad07-fd95-4357-95aa-73c6b18b3ede)
 
-Terraform can manage existing and popular service providers as well as custom in-house solutions which has been developed by HashiCorp
+
+Terraform is one of the most popular Infrastructure-as-code (IaC) tool, used by DevOps teams to automate infrastructure tasks.
+
+It is used to automate the provisioning of your cloud resources.
+
+Terraform is an open-source, cloud-agnostic provisioning tool developed by HashiCorp and written in GO language.
+
+## Benefits of using Terraform:
+
+Does orchestration, not just configuration management
+
+Supports multiple providers such as AWS, Azure, Oracle, GCP, and many more
+
+Uses easy to understand language, HCL (HashiCorp configuration language)
+
 
 # Installation of Terraform
 
 https://developer.hashicorp.com/terraform/install
 
-![image](https://github.com/user-attachments/assets/a5838c97-f170-4f29-abb6-2955b34ce804)
+## Terraform Lifecycle
+
+![image](https://github.com/user-attachments/assets/d5611e27-afc8-439b-b462-a6a03393abd9)
+
+1. Terraform init initializes the (local) Terraform environment. Usually executed only once per session.
+
+2. Terraform plan compares the Terraform state with the as-is state in the cloud, build and display an
+execution plan. This does not change the deployment (read-only).
+
+3. Terraform apply executes the plan. This potentially changes the deployment.
+
+4. Terraform destroy deletes all resources that are governed by this specific terraform environment.
+
+
+
 
